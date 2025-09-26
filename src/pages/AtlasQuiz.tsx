@@ -623,124 +623,23 @@ const renderPaymentForm = () => (
           </div>
         </div>
 
-        {/* Copy UPI ID Section */}
+        {/* Copy UPI ID Button */}
         <div className="flex flex-col items-center justify-center gap-3 bg-black/30 border border-primary/20 rounded-lg p-4">
-          <p className="text-white text-sm font-medium">
-            Prefer manual payment? Use the UPI ID below:
+          <p className="text-white text-sm font-medium text-center">
+            Prefer manual payment? Tap below to copy the UPI ID and pay via your preferred app
           </p>
-          <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-md">
-            <span className="text-black font-semibold text-sm">
-              nikhilnayak2005-1@okicici
-            </span>
-            <button
-              onClick={() =>
-                navigator.clipboard.writeText("nikhilnayak2005-1@okicici")
-              }
-              className="text-xs text-blue-600 underline font-medium hover:text-blue-800 transition"
-            >
-              Copy & Pay
-            </button>
-          </div>
-          <p className="text-white/60 text-xs text-center">
-            Paste this UPI ID in your preferred app (GPay, PhonePe, Paytm) and complete the ₹60 payment
-          </p>
+          <Button
+            type="button"
+            onClick={() => {
+              navigator.clipboard.writeText("nikhilnayak2005-1@okicici");
+            }}
+            className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)]"
+          >
+            Copy UPI ID & Pay via GPay / PhonePe / Paytm
+          </Button>
         </div>
 
-        {/* Payment Proof Section */}
-        <p className="text-center text-white/70">
-          Provide payment proof: Upload screenshot OR enter transaction ID
-        </p>
-
-        <Form {...paymentForm}>
-          <form
-            onSubmit={paymentForm.handleSubmit(onPaymentSubmit)}
-            className="space-y-6"
-          >
-            <FormField
-              control={paymentForm.control}
-              name="emailId"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Email ID</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="email"
-                      placeholder="Enter email address"
-                      className="bg-black/50 border-primary/30 text-white placeholder:text-white/50"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <div className="bg-black/30 border border-primary/20 rounded-lg p-4">
-              <h3 className="text-white font-semibold mb-4">
-                Payment Proof (Choose one option)
-              </h3>
-              <div className="space-y-4">
-                <FormField
-                  control={paymentForm.control}
-                  name="paymentScreenshot"
-                  render={({ field: { onChange, value, ...field } }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">
-                        Option 1: Upload Payment Screenshot
-                      </FormLabel>
-                      <FormControl>
-                        <div className="relative">
-                          <Input
-                            type="file"
-                            accept="image/*"
-                            className="bg-black/50 border-primary/30 text-white file:bg-primary file:text-white file:border-0 file:rounded-md file:px-3 file:py-1"
-                            onChange={(e) => onChange(e.target.files)}
-                            {...field}
-                          />
-                          <Upload className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50 pointer-events-none" />
-                        </div>
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-
-                <div className="text-center text-white/50">OR</div>
-
-                <FormField
-                  control={paymentForm.control}
-                  name="transactionId"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">
-                        Option 2: Enter Transaction ID
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Enter UPI/Payment Transaction ID"
-                          className="bg-black/50 border-primary/30 text-white placeholder:text-white/50"
-                          {...field}
-                        />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-              </div>
-              <FormMessage />
-            </div>
-
-            <Button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(26,47,251,0.4)]"
-            >
-              {isSubmitting ? "Submitting..." : "Submit"}
-            </Button>
-          </form>
-        </Form>
-      </div>
-    </CardContent>
-  </Card>
-);
+       
   const renderReceipt = () => (
     <Card className="max-w-2xl mx-auto bg-black/90 border-primary/30 backdrop-blur-lg shadow-2xl">
       <CardHeader className="text-center">
