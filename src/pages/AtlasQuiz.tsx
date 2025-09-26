@@ -623,9 +623,10 @@ const AtlasQuiz = () => {
           </div>
           
           {/* UPI Payment Link */}
-<div className="text-center space-y-3">
+<div className="text-center space-y-4">
   <p className="text-white/70 text-sm">or</p>
 
+  {/* UPI Deep Link Button */}
   <Button
     type="button"
     onClick={() => {
@@ -637,6 +638,7 @@ const AtlasQuiz = () => {
     Pay ₹60 via UPI Apps
   </Button>
 
+  {/* Animated Logos */}
   <div className="flex justify-center items-center gap-4 mt-2">
     <img
       src="/logos/gpay.png"
@@ -654,6 +656,37 @@ const AtlasQuiz = () => {
       className="h-6 w-auto animate-bounce delay-300"
     />
   </div>
+
+  <p className="text-xs text-white/50">
+    Click to open in GPay, PhonePe, Paytm, or any UPI app
+  </p>
+
+  {/* Razorpay Fallback Link */}
+  <a
+    href="https://razorpay.com/pay/yourlink" // Replace with your actual Razorpay link
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block text-sm text-blue-400 underline mt-2"
+  >
+    Having trouble? Try this verified payment link
+  </a>
+
+  {/* QR Code + Copy UPI ID Fallback */}
+  <div className="mt-4 space-y-2">
+    <img
+      src="/qr/atlas-quiz.png" // Replace with your actual QR image
+      alt="Scan to Pay"
+      className="mx-auto h-32 w-32 rounded-md shadow-md"
+    />
+    <p className="text-xs text-white/50">Scan QR if UPI apps show a warning</p>
+    <button
+      onClick={() => navigator.clipboard.writeText("nikhilnayak2005-1@okicici")}
+      className="text-xs text-green-400 underline"
+    >
+      Copy UPI ID: nikhilnayak2005-1@okicici
+    </button>
+  </div>
+</div>
 
   <p className="text-xs text-white/50">
     Click to open in GPay, PhonePe, Paytm, or any UPI app
