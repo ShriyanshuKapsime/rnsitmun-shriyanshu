@@ -623,53 +623,27 @@ const renderPaymentForm = () => (
           </div>
         </div>
 
-        {/* Razorpay Payment Link */}
-        <div className="text-center space-y-3">
-          <p className="text-white/70 text-sm">or</p>
-          <a
-            href="https://rzp.io/l/AtlasQuiz60" // Replace with your actual Razorpay link
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)]"
-          >
-            Pay ₹60 via Razorpay (UPI, Cards, Wallets)
-          </a>
-
-          {/* Animated UPI Logos */}
-          <div className="flex justify-center items-center gap-4 mt-2">
-            <img
-              src="/logos/gpay.png"
-              alt="Google Pay"
-              className="h-6 w-auto animate-bounce"
-            />
-            <img
-              src="/logos/phonepe.png"
-              alt="PhonePe"
-              className="h-6 w-auto animate-bounce delay-150"
-            />
-            <img
-              src="/logos/paytm.png"
-              alt="Paytm"
-              className="h-6 w-auto animate-bounce delay-300"
-            />
-          </div>
-
-          <p className="text-xs text-white/50">
-            Works with GPay, PhonePe, Paytm, and all major UPI apps
+        {/* Copy UPI ID Section */}
+        <div className="flex flex-col items-center justify-center gap-3 bg-black/30 border border-primary/20 rounded-lg p-4">
+          <p className="text-white text-sm font-medium">
+            Prefer manual payment? Use the UPI ID below:
           </p>
-        </div>
-
-        {/* Copy UPI ID Fallback */}
-        <div className="text-center space-y-2">
-          <p className="text-white/70 text-sm">or use UPI ID manually</p>
-          <button
-            onClick={() =>
-              navigator.clipboard.writeText("nikhilnayak2005-1@okicici")
-            }
-            className="text-sm text-green-400 underline"
-          >
-            Copy UPI ID: nikhilnayak2005-1@okicici
-          </button>
+          <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-md">
+            <span className="text-black font-semibold text-sm">
+              nikhilnayak2005-1@okicici
+            </span>
+            <button
+              onClick={() =>
+                navigator.clipboard.writeText("nikhilnayak2005-1@okicici")
+              }
+              className="text-xs text-blue-600 underline font-medium hover:text-blue-800 transition"
+            >
+              Copy & Pay
+            </button>
+          </div>
+          <p className="text-white/60 text-xs text-center">
+            Paste this UPI ID in your preferred app (GPay, PhonePe, Paytm) and complete the ₹60 payment
+          </p>
         </div>
 
         {/* Payment Proof Section */}
