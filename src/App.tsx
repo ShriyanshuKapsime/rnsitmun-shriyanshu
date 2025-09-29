@@ -9,6 +9,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import LoadingFallback from "@/components/layout/LoadingFallback";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 
 // Lazy load components for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -39,6 +40,7 @@ const App = () => {
           <SpeedInsights />
           <div className="bg-background text-foreground min-h-[100dvh]">
             <BrowserRouter>
+              <ScrollToTop />
               <Suspense fallback={<LoadingFallback />}>
                 <Routes>
                   <Route path="/" element={<Index />} />

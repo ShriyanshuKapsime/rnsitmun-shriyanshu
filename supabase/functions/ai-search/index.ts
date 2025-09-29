@@ -89,10 +89,10 @@ serve(async (req) => {
       context += "Knowledge Base Information:\n";
       kbResults.forEach(result => {
         context += `${result.topic}: ${result.data.definition}\n`;
-        if (result.data.functions) {
+        if ('functions' in result.data && result.data.functions) {
           context += `Functions: ${result.data.functions.join(", ")}\n`;
         }
-        if (result.data.members) {
+        if ('members' in result.data && result.data.members) {
           context += `Members: ${result.data.members}\n`;
         }
         context += "\n";

@@ -9,6 +9,15 @@ import {
   CheckCircle,
   Printer,
   ArrowLeft,
+  ChevronDown,
+  ChevronUp,
+  FileText,
+  Globe,
+  GraduationCap,
+  Target,
+  Award,
+  Coffee,
+  Phone,
 } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -27,6 +36,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
   Select,
   SelectContent,
@@ -167,6 +177,7 @@ interface ReceiptData {
 
 const AtlasQuiz = () => {
   const [currentStep, setCurrentStep] = useState<Step>("registration");
+  const [isEventDetailsOpen, setIsEventDetailsOpen] = useState(false);
   const [registrationData, setRegistrationData] = useState<RegistrationData | null>(null);
   const [receiptData, setReceiptData] = useState<ReceiptData | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -737,66 +748,104 @@ const renderPaymentForm = () => (
 );
 
   const renderReceipt = () => (
-    <Card className="max-w-2xl mx-auto bg-black/90 border-primary/30 backdrop-blur-lg shadow-2xl">
-      <CardHeader className="text-center">
-        <div className="flex justify-center mb-4">
-          <CheckCircle className="w-16 h-16 text-green-500" />
-        </div>
-        <CardTitle className="text-2xl font-bold text-white">Payment Receipt</CardTitle>
-      </CardHeader>
-      <CardContent className="p-6">
-        <div className="space-y-4 text-white">
-          <div className="border-b border-primary/20 pb-4">
-            <h3 className="text-lg font-semibold mb-2">Event Details</h3>
-            <p><span className="text-white/70">Event Name:</span> Atlas Quiz</p>
+    <div className="max-w-2xl mx-auto">
+      <Card className="bg-white text-black print:shadow-none print:border-0">
+        <CardHeader className="text-center print:pb-4">
+          <div className="flex justify-center mb-4 print:mb-2">
+            <CheckCircle className="w-16 h-16 text-green-500 print:w-8 print:h-8" />
+          </div>
+          <CardTitle className="text-2xl font-bold print:text-xl print:mb-4">
+            Atlas Quiz 2025 - Payment Receipt
+          </CardTitle>
+          <p className="text-sm text-gray-600 print:text-xs">
+            RNS Institute of Technology - MUN Society
+          </p>
+        </CardHeader>
+        <CardContent className="p-6 print:p-4">
+          <div className="space-y-4 print:space-y-2">
+            <div className="border-b border-gray-300 pb-4 print:pb-2">
+              <h3 className="text-lg font-semibold mb-2 print:text-base print:mb-1">Event Details</h3>
+              <div className="grid grid-cols-2 gap-2 text-sm print:text-xs">
+                <span className="font-medium">Event Name:</span>
+                <span>Atlas Quiz Competition</span>
+                <span className="font-medium">Date:</span>
+                <span>9th October, 2025</span>
+                <span className="font-medium">Venue:</span>
+                <span>RNSIT Campus</span>
+              </div>
+            </div>
+            
+            <div className="border-b border-gray-300 pb-4 print:pb-2">
+              <h3 className="text-lg font-semibold mb-2 print:text-base print:mb-1">Participant Details</h3>
+              <div className="space-y-1 text-sm print:text-xs">
+                <div className="grid grid-cols-2 gap-2">
+                  <span className="font-medium">Participant 1:</span>
+                  <span>{receiptData?.participant1Name}</span>
+                </div>
+                {receiptData?.participant2Name && (
+                  <div className="grid grid-cols-2 gap-2">
+                    <span className="font-medium">Participant 2:</span>
+                    <span>{receiptData?.participant2Name}</span>
+                  </div>
+                )}
+                <div className="grid grid-cols-2 gap-2">
+                  <span className="font-medium">Team Name:</span>
+                  <span>{receiptData?.teamName}</span>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <span className="font-medium">Email ID:</span>
+                  <span>{receiptData?.emailId}</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="border-b border-gray-300 pb-4 print:pb-2">
+              <h3 className="text-lg font-semibold mb-2 print:text-base print:mb-1">Payment Information</h3>
+              <div className="space-y-1 text-sm print:text-xs">
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 print:w-4 print:h-4" />
+                  <span className="text-green-600 font-semibold">Payment Successful</span>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <span className="font-medium">Amount Paid:</span>
+                  <span>₹60</span>
+                  <span className="font-medium">Payment Proof:</span>
+                  <span>{receiptData?.proofType}</span>
+                  <span className="font-medium">Receipt ID:</span>
+                  <span>{receiptData?.receiptId}</span>
+                  <span className="font-medium">Date & Time:</span>
+                  <span>{new Date().toLocaleString()}</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="text-center text-sm print:text-xs text-gray-600 pt-4 print:pt-2">
+              <p className="mb-1">Thank you for registering for Atlas Quiz 2025!</p>
+              <p>For queries, contact: Aditi Maktedar (9108080956) | V Koushik (9353195315)</p>
+              <p className="mt-2">Follow us: @rnsit.mun</p>
+            </div>
           </div>
           
-          <div className="border-b border-primary/20 pb-4">
-            <h3 className="text-lg font-semibold mb-2">Participant Details</h3>
-            <p><span className="text-white/70">Participant 1:</span> {receiptData?.participant1Name}</p>
-            {receiptData?.participant2Name && (
-              <p><span className="text-white/70">Participant 2:</span> {receiptData?.participant2Name}</p>
-            )}
-            <p><span className="text-white/70">Team Name:</span> {receiptData?.teamName}</p>
-            <p><span className="text-white/70">Email ID:</span> {receiptData?.emailId}</p>
+          <div className="flex gap-4 mt-6 print:hidden">
+            <Button
+              onClick={handlePrintReceipt}
+              className="flex-1 bg-primary hover:bg-primary/90 text-white"
+            >
+              <Printer className="mr-2 w-4 h-4" />
+              Print / Download Receipt
+            </Button>
+            <Button
+              onClick={handleBackToForm}
+              variant="outline"
+              className="flex-1 border-primary/30 hover:bg-primary/10"
+            >
+              <ArrowLeft className="mr-2 w-4 h-4" />
+              Back
+            </Button>
           </div>
-          
-          <div className="border-b border-primary/20 pb-4">
-            <h3 className="text-lg font-semibold mb-2">Payment Status</h3>
-            <p className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              <span className="text-green-500 font-semibold">✅ Successful</span>
-            </p>
-            <p><span className="text-white/70">Proof:</span> {receiptData?.proofType}</p>
-          </div>
-          
-          <div className="border-b border-primary/20 pb-4">
-            <h3 className="text-lg font-semibold mb-2">Receipt Details</h3>
-            <p><span className="text-white/70">Receipt ID:</span> {receiptData?.receiptId}</p>
-            <p><span className="text-white/70">Amount:</span> ₹60</p>
-            <p><span className="text-white/70">Date:</span> {new Date().toLocaleDateString()}</p>
-          </div>
-        </div>
-        
-        <div className="flex gap-4 mt-6">
-          <Button
-            onClick={handlePrintReceipt}
-            className="flex-1 bg-primary hover:bg-primary/90 text-white"
-          >
-            <Printer className="mr-2 w-4 h-4" />
-            Print / Download Receipt
-          </Button>
-          <Button
-            onClick={handleBackToForm}
-            variant="outline"
-            className="flex-1 border-primary/30 text-white hover:bg-primary/10"
-          >
-            <ArrowLeft className="mr-2 w-4 h-4" />
-            Back
-          </Button>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </div>
   );
 
   return (
@@ -862,10 +911,163 @@ const renderPaymentForm = () => (
                         <p className="text-white/70">₹6,000</p>
                       </CardContent>
                     </Card>
-                  </div>
-                  {renderRegistrationForm()}
-                </>
-              )}
+                   </div>
+
+                   {/* Expandable Event Details Section */}
+                   <div className="max-w-5xl mx-auto mb-12">
+                     <Collapsible open={isEventDetailsOpen} onOpenChange={setIsEventDetailsOpen}>
+                       <CollapsibleTrigger asChild>
+                         <Button 
+                           variant="outline" 
+                           className="w-full bg-black/40 border-primary/20 backdrop-blur-sm text-white hover:bg-primary/20 transition-all duration-300"
+                         >
+                           <div className="flex items-center justify-center gap-2 w-full">
+                             <FileText className="w-5 h-5" />
+                             <span className="font-medium">Event Details</span>
+                             {isEventDetailsOpen ? (
+                               <ChevronUp className="w-5 h-5 ml-auto" />
+                             ) : (
+                               <ChevronDown className="w-5 h-5 ml-auto" />
+                             )}
+                           </div>
+                         </Button>
+                       </CollapsibleTrigger>
+                       <CollapsibleContent className="animate-accordion-down">
+                         <Card className="mt-4 bg-black/40 border-primary/20 backdrop-blur-sm">
+                           <CardContent className="p-8">
+                             <div className="text-center mb-8">
+                               <p className="text-white/90 text-lg leading-relaxed">
+                                 The RNSIT Model United Nations Society invites you to the second edition of our Intercollegiate Quiz Competition, 'Atlas'. 
+                                 The quiz will test the participants on their knowledge pertaining to current affairs, history, the United Nations, 
+                                 national and international politics, etc.
+                               </p>
+                             </div>
+                             
+                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                               {/* Left Column - Icons and Categories */}
+                               <div className="space-y-6">
+                                 <div className="flex items-start gap-4">
+                                   <Calendar className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                                   <div>
+                                     <h4 className="text-white font-semibold mb-2">Date & Time</h4>
+                                     <p className="text-white/80">9th October, 2025 (Thursday)</p>
+                                     <p className="text-white/80">Qualifying Round starts at 1:30 PM sharp</p>
+                                     <p className="text-white/70 text-sm">(Arrive at least 30 minutes early for registration and briefing)</p>
+                                   </div>
+                                 </div>
+                                 
+                                 <div className="flex items-start gap-4">
+                                   <Globe className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                                   <div>
+                                     <h4 className="text-white font-semibold mb-2">Topics Covered</h4>
+                                     <p className="text-white/80">Global Policies, Indian Politics, World History, Current Affairs, MUN Rules of Procedure (RoPs)</p>
+                                   </div>
+                                 </div>
+                                 
+                                 <div className="flex items-start gap-4">
+                                   <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                                   <div>
+                                     <h4 className="text-white font-semibold mb-2">Location</h4>
+                                     <p className="text-white/80">RNS Institute of Technology</p>
+                                     <a 
+                                       href="https://maps.app.goo.gl/gHUuxjH5g3XdaeEy9?g_st=ac" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       className="text-primary hover:text-primary/80 text-sm underline"
+                                     >
+                                       View on Google Maps
+                                     </a>
+                                   </div>
+                                 </div>
+                                 
+                                 <div className="flex items-start gap-4">
+                                   <GraduationCap className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                                   <div>
+                                     <h4 className="text-white font-semibold mb-2">Eligibility</h4>
+                                     <p className="text-white/80">Open ONLY for undergraduate students from any college, any stream</p>
+                                     <p className="text-white/70 text-sm">Prior registration on website by paying ₹60 is mandatory</p>
+                                   </div>
+                                 </div>
+                                 
+                                 <div className="flex items-start gap-4">
+                                   <Users className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                                   <div>
+                                     <h4 className="text-white font-semibold mb-2">Team Size</h4>
+                                     <p className="text-white/80">1 or 2 members per team</p>
+                                   </div>
+                                 </div>
+                               </div>
+                               
+                               {/* Right Column - Detailed Information */}
+                               <div className="space-y-6">
+                                 <div className="flex items-start gap-4">
+                                   <Target className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                                   <div>
+                                     <h4 className="text-white font-semibold mb-2">Competition Rounds</h4>
+                                     <p className="text-white/80 mb-2"><strong>Qualifier Round:</strong> Conducted on a 'pen-and-paper' format at the venue, starting at 1:30 PM</p>
+                                     <p className="text-white/80"><strong>Final Round:</strong> The top 6 teams from the qualifier round will advance to the finals, which will take place on the same day at the same venue</p>
+                                   </div>
+                                 </div>
+                                 
+                                 <div className="flex items-start gap-4">
+                                   <Award className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                                   <div>
+                                     <h4 className="text-white font-semibold mb-2">Prizes</h4>
+                                     <div className="space-y-1 text-white/80">
+                                       <p>🥇 First Place: ₹3,000</p>
+                                       <p>🥈 Second Place: ₹2,000</p>
+                                       <p>🥉 Third Place: ₹1,000</p>
+                                       <p>🏅 Other Finalists receive Certificates</p>
+                                     </div>
+                                   </div>
+                                 </div>
+                                 
+                                 <div className="flex items-start gap-4">
+                                   <Coffee className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                                   <div>
+                                     <h4 className="text-white font-semibold mb-2">Facilities</h4>
+                                     <div className="space-y-1 text-white/80 text-sm">
+                                       <p>• Parking available for 2-wheelers and 4-wheelers</p>
+                                       <p>• Restrooms and water stations near the venue</p>
+                                       <p>• Food Court open 12:30 PM - 4:45 PM</p>
+                                     </div>
+                                   </div>
+                                 </div>
+                                 
+                                 <div className="flex items-start gap-4">
+                                   <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                                   <div>
+                                     <h4 className="text-white font-semibold mb-2">Participant Checklist</h4>
+                                     <div className="space-y-1 text-white/80 text-sm">
+                                       <p>• Carry your college ID card as proof of eligibility</p>
+                                       <p>• Be aware of traffic and road conditions in the city</p>
+                                       <p>• Check registered email for updates and instructions</p>
+                                     </div>
+                                   </div>
+                                 </div>
+                                 
+                                 <div className="flex items-start gap-4">
+                                   <Phone className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                                   <div>
+                                     <h4 className="text-white font-semibold mb-2">Contact</h4>
+                                     <div className="space-y-1 text-white/80 text-sm">
+                                       <p>Aditi Maktedar: 9108080956</p>
+                                       <p>V Koushik: 9353195315</p>
+                                       <p>Follow us: @rnsit.mun 📲</p>
+                                     </div>
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                           </CardContent>
+                         </Card>
+                       </CollapsibleContent>
+                     </Collapsible>
+                   </div>
+
+                   {renderRegistrationForm()}
+                 </>
+               )}
 
               {currentStep === "payment" && renderPaymentForm()}
               {currentStep === "receipt" && renderReceipt()}
