@@ -262,13 +262,24 @@
 /* Print styles for receipts */
 @media print {
   @page {
-    margin: 1in;
-    size: A4;
+    margin: 0.5in;
+    size: A4 portrait;
   }
   
   body {
     background: white !important;
     color: black !important;
+  }
+  /* Ensure only the receipt is visible and fills width on mobile */
+  .print-receipt {
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    padding: 0.5in !important;
+  }
+  .print-receipt-card {
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
   .print\:hidden {

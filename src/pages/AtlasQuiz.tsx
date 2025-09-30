@@ -764,8 +764,8 @@ const renderPaymentForm = () => (
 );
 
   const renderReceipt = () => (
-    <div className="max-w-2xl mx-auto print:fixed print:inset-0 print:flex print:items-start print:justify-center print:bg-white print:z-[1000]">
-      <Card className="bg-white text-black print:shadow-none print:border-0 print:w-[780px] print:max-w-[780px]">
+    <div className="max-w-2xl mx-auto print-receipt print:fixed print:inset-0 print:flex print:items-start print:justify-center print:bg-white print:z-[1000]">
+      <Card className="bg-white text-black print-receipt-card print:shadow-none print:border print:border-gray-200 print:w-full print:max-w-none">
         <CardHeader className="text-center print:pb-4">
           <div className="flex justify-center items-center gap-3 mb-2 print:mb-1">
             <img src="/mun-logo.jpg" alt="RNSIT MUNSoc" className="w-10 h-10 rounded-full print:w-8 print:h-8" />
@@ -989,23 +989,8 @@ const renderPaymentForm = () => (
                                      <p className="text-white/80">Global Policies, Indian Politics, World History, Current Affairs, MUN Rules of Procedure (RoPs)</p>
                                    </div>
                                  </div>
-                                 
-                                 <div className="flex items-start gap-4">
-                                   <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                                   <div>
-                                     <h4 className="text-white font-semibold mb-2">Location</h4>
-                                     <p className="text-white/80">RNS Institute of Technology</p>
-                                     <a 
-                                       href="https://maps.app.goo.gl/gHUuxjH5g3XdaeEy9?g_st=ac" 
-                                       target="_blank" 
-                                       rel="noopener noreferrer"
-                                       className="text-primary hover:text-primary/80 text-sm underline"
-                                     >
-                                       View on Google Maps
-                                     </a>
-                                   </div>
-                                 </div>
-                                 
+
+                                 {/* Eligibility moved below Topics Covered */}
                                  <div className="flex items-start gap-4">
                                    <GraduationCap className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                                    <div>
@@ -1014,14 +999,19 @@ const renderPaymentForm = () => (
                                      <p className="text-white/70 text-sm">Prior registration on website by paying ₹60 is mandatory</p>
                                    </div>
                                  </div>
-                                 
-                                 <div className="flex items-start gap-4">
-                                   <Users className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                                   <div>
-                                     <h4 className="text-white font-semibold mb-2">Team Size</h4>
-                                     <p className="text-white/80">1 or 2 members per team</p>
-                                   </div>
-                                 </div>
+                                {/* Event Poster placed here */}
+                                <div className="mt-2">
+                                  <h4 className="text-white font-semibold mb-3">Event Poster</h4>
+                                  <div className="relative rounded-2xl overflow-hidden border border-primary/20 bg-black/60 shadow-2xl p-2">
+                                    <img
+                                      src="/atlas-poster.jpg"
+                                      alt="Atlas Quiz Poster"
+                                      className="block w-full h-auto object-contain max-h-[700px]"
+                                      onError={(e) => { e.currentTarget.src = "/slideshow/atlas_24.JPG"; }}
+                                    />
+                                  </div>
+                                  <p className="text-white/60 text-xs mt-2">Scan the QR on the poster to register or use the forms below.</p>
+                                </div>
                                </div>
                                
                                {/* Right Column - Detailed Information */}
@@ -1045,6 +1035,15 @@ const renderPaymentForm = () => (
                                        <p>🥉 Third Place: ₹1,000</p>
                                        <p>🏅 Other Finalists receive Certificates</p>
                                      </div>
+                                   </div>
+                                 </div>
+
+                                 {/* Certification */}
+                                 <div className="flex items-start gap-4">
+                                   <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                                   <div>
+                                     <h4 className="text-white font-semibold mb-2">Certification</h4>
+                                     <p className="text-white/80">E-certificates will be issued to all participants of the preliminary round.</p>
                                    </div>
                                  </div>
                                  
@@ -1071,18 +1070,45 @@ const renderPaymentForm = () => (
                                      </div>
                                    </div>
                                  </div>
-                                 
-                                 <div className="flex items-start gap-4">
-                                   <Phone className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                                   <div>
-                                     <h4 className="text-white font-semibold mb-2">Contact</h4>
-                                     <div className="space-y-1 text-white/80 text-sm">
-                                       <p>Aditi Maktedar: 9108080956</p>
-                                       <p>V Koushik: 9353195315</p>
-                                       <p>Follow us: @rnsit.mun 📲</p>
-                                     </div>
-                                   </div>
-                                 </div>
+                                
+                                {/* Order: Team Size, then Location, then Contact */}
+                                <div className="flex items-start gap-4">
+                                  <Users className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                                  <div>
+                                    <h4 className="text-white font-semibold mb-2">Team Size</h4>
+                                    <p className="text-white/80">1 or 2 members per team</p>
+                                  </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                  <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                                  <div>
+                                    <h4 className="text-white font-semibold mb-2">Location</h4>
+                                    <p className="text-white/80">RNS Institute of Technology</p>
+                                    <a 
+                                      href="https://maps.app.goo.gl/gHUuxjH5g3XdaeEy9?g_st=ac" 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="text-primary hover:text-primary/80 text-sm underline"
+                                    >
+                                      View on Google Maps
+                                    </a>
+                                  </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                  <Phone className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                                  <div>
+                                    <h4 className="text-white font-semibold mb-2">Contact</h4>
+                                    <div className="space-y-1 text-white/80 text-sm">
+                                      <p>Aditi Maktedar: 9108080956</p>
+                                      <p>V Koushik: 9353195315</p>
+                                      <p>Follow us: @rnsit.mun 📲</p>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                
                                </div>
                              </div>
                            </CardContent>
