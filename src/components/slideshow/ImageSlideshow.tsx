@@ -67,7 +67,7 @@ const ImageSlideshow = () => {
   return (
     <div className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden bg-muted/20">
       {/* Image wrapper with fixed height for consistency */}
-      <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] flex items-center justify-center">
+      <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px] lg:h-[500px] flex items-center justify-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentImageIndex}
@@ -88,7 +88,7 @@ const ImageSlideshow = () => {
               className="w-full h-full object-cover rounded-2xl"
               loading={currentImageIndex === 0 ? "eager" : "lazy"}
               decoding="async"
-              fetchPriority={currentImageIndex === 0 ? "high" : "low"}
+              {...{ fetchpriority: currentImageIndex === 0 ? "high" : "low" }}
               onLoad={() => handleImageLoad(currentImageIndex)}
               onError={(e) => {
                 e.currentTarget.src = '/placeholder.svg';

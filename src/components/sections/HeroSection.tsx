@@ -33,7 +33,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[70vh] md:min-h-[80vh] flex flex-col justify-center overflow-visible bg-background py-8 sm:py-12 md:py-16">
+    <section className="relative min-h-[70vh] md:min-h-[80vh] flex flex-col justify-center overflow-visible bg-background py-6 sm:py-12 md:py-16">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-primary/10" />
 
@@ -60,7 +60,7 @@ const HeroSection = () => {
               </span>
             </div>
 
-            <h1 className="font-inter text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-foreground tracking-tight">
+            <h1 className="font-inter text-[28px] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-foreground tracking-tight">
               <span className="text-gradient-lusion font-black block sm:inline">
                 RNSIT MUN
               </span>
@@ -70,7 +70,7 @@ const HeroSection = () => {
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 font-inter leading-relaxed font-medium">
+            <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 font-inter leading-relaxed font-medium">
               Welcome to <strong>RNSIT MUN</strong>, the official{" "}
               <strong>Model United Nations society</strong> at{" "}
               <strong>RNS Institute of Technology, Bangalore</strong>. Join our
@@ -110,8 +110,8 @@ const HeroSection = () => {
           </div>
 
           {/* Image Slideshow */}
-          <div className="relative mt-8 lg:mt-0 bg-gradient-to-br from-primary/5 to-transparent rounded-3xl p-1 overflow-hidden">
-            <div className="bg-muted/20 rounded-2xl min-h-[200px] flex items-center justify-center">
+          <div className="relative mt-6 lg:mt-0 bg-gradient-to-br from-primary/5 to-transparent rounded-3xl p-1 overflow-hidden">
+            <div className="bg-muted/20 rounded-2xl min-h-[180px] sm:min-h-[200px] flex items-center justify-center">
               <ImageSlideshow />
             </div>
           </div>

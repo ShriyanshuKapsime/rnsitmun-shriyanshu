@@ -19,7 +19,7 @@ import {
   Coffee,
   Phone,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -177,6 +177,8 @@ interface ReceiptData {
 
 const AtlasQuiz = () => {
   const [currentStep, setCurrentStep] = useState<Step>("registration");
+  const topRef = useRef<HTMLDivElement | null>(null);
+  const paymentTopRef = useRef<HTMLDivElement | null>(null);
   const [isEventDetailsOpen, setIsEventDetailsOpen] = useState(false);
   const [registrationData, setRegistrationData] = useState<RegistrationData | null>(null);
   const [receiptData, setReceiptData] = useState<ReceiptData | null>(null);
@@ -317,6 +319,20 @@ const AtlasQuiz = () => {
     registrationForm.reset();
     paymentForm.reset();
   };
+
+  // Ensure the view scrolls to the top of the Atlas section whenever step changes
+  useEffect(() => {
+    const scrollTarget = currentStep === "payment" && paymentTopRef.current
+      ? paymentTopRef.current
+      : topRef.current;
+    if (scrollTarget) {
+      setTimeout(() => {
+        scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 0);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [currentStep]);
 
   const renderRegistrationForm = () => (
     <Card className="max-w-2xl mx-auto bg-black/90 border-primary/30 backdrop-blur-lg shadow-2xl">
@@ -609,9 +625,9 @@ const AtlasQuiz = () => {
   );
 
 const renderPaymentForm = () => (
-  <Card className="max-w-2xl mx-auto bg-black/90 border-primary/30 backdrop-blur-lg shadow-2xl">
+  <Card ref={paymentTopRef} className="max-w-2xl mx-auto bg-black/90 border-primary/30 backdrop-blur-lg shadow-2xl">
     <CardHeader className="text-center">
-      <CardTitle className="text-2xl font-bold text-white flex items-center justify-center gap-2">
+      <CardTitle className="text-xl sm:text-2xl font-bold text-white flex items-center justify-center gap-2 leading-snug">
         <QrCode className="w-6 h-6" />
         Go to Payment – Scan the QR below to pay ₹60
       </CardTitle>
@@ -620,11 +636,11 @@ const renderPaymentForm = () => (
       <div className="space-y-6">
         {/* QR Code Fallback */}
         <div className="flex justify-center">
-          <div className="bg-white p-4 rounded-lg">
+          <div className="bg-white p-3 sm:p-4 rounded-lg">
             <img
               src="/atlas-payment-qr.png"
               alt="Payment QR Code - ₹60"
-              className="w-48 h-48 object-contain"
+              className="w-full max-w-[220px] sm:max-w-[240px] md:max-w-[256px] aspect-square object-contain"
               onError={(e) => {
                 e.currentTarget.src = "/placeholder.svg";
                 e.currentTarget.alt =
@@ -636,23 +652,23 @@ const renderPaymentForm = () => (
 
         {/* Copy UPI ID Button */}
         <div className="text-center space-y-3">
-          <p className="text-white/70 text-sm">or</p>
+          <p className="text-white/70 text-xs sm:text-sm">or</p>
           <Button
             type="button"
             onClick={() => {
               navigator.clipboard.writeText("nikhilnayak2005-1@okicici");
             }}
-            className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)]"
+            className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] whitespace-normal sm:whitespace-nowrap break-words text-center px-3 leading-snug h-auto min-h-12 max-[360px]:text-sm"
           >
             Copy UPI ID & Pay via GPay / PhonePe / Paytm
           </Button>
-          <p className="text-xs text-white/50">
+          <p className="text-[11px] sm:text-xs text-white/50">
             Paste the UPI ID in your preferred app and complete the ₹60 payment
           </p>
         </div>
 
         {/* Payment Proof Section */}
-        <p className="text-center text-white/70">
+        <p className="text-center text-white/70 text-sm sm:text-base">
           Provide payment proof: Upload screenshot OR enter transaction ID
         </p>
 
@@ -680,8 +696,8 @@ const renderPaymentForm = () => (
               )}
             />
 
-            <div className="bg-black/30 border border-primary/20 rounded-lg p-4">
-              <h3 className="text-white font-semibold mb-4">
+            <div className="bg-black/30 border border-primary/20 rounded-lg p-3 sm:p-4">
+              <h3 className="text-white font-semibold mb-3 sm:mb-4 text-base sm:text-lg">
                 Payment Proof (Choose one option)
               </h3>
               <div className="space-y-4">
@@ -690,7 +706,7 @@ const renderPaymentForm = () => (
                   name="paymentScreenshot"
                   render={({ field: { onChange, value, ...field } }) => (
                     <FormItem>
-                      <FormLabel className="text-white">
+                      <FormLabel className="text-white text-sm sm:text-base">
                         Option 1: Upload Payment Screenshot
                       </FormLabel>
                       <FormControl>
@@ -698,7 +714,7 @@ const renderPaymentForm = () => (
                           <Input
                             type="file"
                             accept="image/*"
-                            className="bg-black/50 border-primary/30 text-white file:bg-primary file:text-white file:border-0 file:rounded-md file:px-3 file:py-1"
+                            className="bg-black/50 border-primary/30 text-white file:bg-primary file:text-white file:border-0 file:rounded-md file:px-3 file:py-1 text-sm"
                             onChange={(e) => onChange(e.target.files)}
                             {...field}
                           />
@@ -709,20 +725,20 @@ const renderPaymentForm = () => (
                   )}
                 />
 
-                <div className="text-center text-white/50">OR</div>
+                <div className="text-center text-white/50 text-xs sm:text-sm">OR</div>
 
                 <FormField
                   control={paymentForm.control}
                   name="transactionId"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white">
+                      <FormLabel className="text-white text-sm sm:text-base">
                         Option 2: Enter Transaction ID
                       </FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Enter UPI/Payment Transaction ID"
-                          className="bg-black/50 border-primary/30 text-white placeholder:text-white/50"
+                          className="bg-black/50 border-primary/30 text-white placeholder:text-white/50 text-sm sm:text-base"
                           {...field}
                         />
                       </FormControl>
@@ -736,7 +752,7 @@ const renderPaymentForm = () => (
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(26,47,251,0.4)]"
+              className="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(26,47,251,0.4)]"
             >
               {isSubmitting ? "Submitting..." : "Submit"}
             </Button>
@@ -748,11 +764,20 @@ const renderPaymentForm = () => (
 );
 
   const renderReceipt = () => (
-    <div className="max-w-2xl mx-auto">
-      <Card className="bg-white text-black print:shadow-none print:border-0">
+    <div className="max-w-2xl mx-auto print:fixed print:inset-0 print:flex print:items-start print:justify-center print:bg-white print:z-[1000]">
+      <Card className="bg-white text-black print:shadow-none print:border-0 print:w-[780px] print:max-w-[780px]">
         <CardHeader className="text-center print:pb-4">
+          <div className="flex justify-center items-center gap-3 mb-2 print:mb-1">
+            <img src="/mun-logo.jpg" alt="RNSIT MUNSoc" className="w-10 h-10 rounded-full print:w-8 print:h-8" />
+            <span className="text-lg font-semibold hidden print:inline">RNSIT MUNSoc</span>
+          </div>
           <div className="flex justify-center mb-4 print:mb-2">
             <CheckCircle className="w-16 h-16 text-green-500 print:w-8 print:h-8" />
+          </div>
+          {/* Print-only brand title and tagline */}
+          <div className="hidden print:block text-center mb-2">
+            <div className="text-xl font-extrabold">RNSIT MUNSoc</div>
+            <div className="text-sm text-gray-600">Model United Nations</div>
           </div>
           <CardTitle className="text-2xl font-bold print:text-xl print:mb-4">
             Atlas Quiz 2025 - Payment Receipt
@@ -837,7 +862,7 @@ const renderPaymentForm = () => (
             <Button
               onClick={handleBackToForm}
               variant="outline"
-              className="flex-1 border-primary/30 hover:bg-primary/10"
+              className="flex-1 border-primary/30 bg-white text-black hover:bg-primary/10"
             >
               <ArrowLeft className="mr-2 w-4 h-4" />
               Back
@@ -850,6 +875,7 @@ const renderPaymentForm = () => (
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-background via-background to-black/80 py-16 sm:py-24">
+      <div ref={topRef} />
       <div className="absolute inset-0 bg-[url('/atlas-bg.jpg')] bg-cover bg-center opacity-10" />
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
