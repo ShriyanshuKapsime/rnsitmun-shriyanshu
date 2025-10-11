@@ -2,21 +2,11 @@
 import Layout from "@/components/layout/Layout";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
 import { Badge } from "@/components/ui/badge";
-import { Users, Award, Globe, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Users, Award, Globe, Sparkles, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const delegationMembers = [
-  {
-    name: "Aaditya Raj",
-    department: "Computer Science (AI & ML)",
-    filename: "aaditya raj_cse(aiml).jpg",
-    role: "Delegate"
-  },
-  {
-    name: "Adith D H",
-    department: "Electronics and Communication Engineering",
-    filename: "Adith D H (ECE A SEM 1).jpg",
-    role: "Delegate"
-  },
   {
     name: "Aditi Sanjay Revankar",
     department: "Computer Science - Data Science",
@@ -42,12 +32,6 @@ const delegationMembers = [
     role: "Delegate"
   },
   {
-    name: "Karthik Prasad M",
-    department: "Computer Science - Data Science",
-    filename: "Karthik Prasad M_CS(DS).jpg",
-    role: "Delegate"
-  },
-  {
     name: "Lavanya Rao",
     department: "Electronics and Communication Engineering",
     filename: "Lavanya Rao_EC.jpg",
@@ -57,24 +41,6 @@ const delegationMembers = [
     name: "Malla Varshini",
     department: "Computer Science - Data Science",
     filename: "Malla Varshini_CS-DS.jpg",
-    role: "Delegate"
-  },
-  {
-    name: "Manasi",
-    department: "Data Science",
-    filename: "Manasi(DS).jpg",
-    role: "Delegate"
-  },
-  {
-    name: "Nishita Bhat",
-    department: "Computer Science – Cybersecurity",
-    filename: "Nishita Bhat (CSE-CY) sem-1.jpg",
-    role: "Delegate"
-  },
-  {
-    name: "Samartha D N",
-    department: "Computer Science – Cybersecurity",
-    filename: "Samartha D N -- CSE-CY.jpg",
     role: "Delegate"
   },
   {
@@ -93,12 +59,6 @@ const delegationMembers = [
     name: "Varun A",
     department: "Electrical and Electronics Engineering",
     filename: "Varun A - eee.JPG",
-    role: "Delegate"
-  },
-  {
-    name: "Zeyan Shahid Khan",
-    department: "Computer Science",
-    filename: "Zeyan Shahid Khan (CSE).jpg",
     role: "Delegate"
   },
 ];
@@ -137,7 +97,7 @@ const coreTeam = [
   {
     name: "Shivam Sharma",
     title: "Core Team Member",
-    image: "/placeholder.svg",
+    image: "/MEMBERS/CC Members/shivam.jpg",
   },
   {
     name: "Druthi TY",
@@ -172,11 +132,33 @@ const coreTeam = [
   {
     name: "Yamini Mouli C",
     title: "Core Team Member",
-    image: "/placeholder.svg",
+    image: "/MEMBERS/CC Members/Yamini.jpg",
+  },
+  {
+    name: "Adith D H",
+    title: "Core Team Member",
+    image: "/MEMBERS/CC Members/Adith D H (ECE A SEM 1).jpg",
+  },
+  {
+    name: "Karthik Prasad M",
+    title: "Core Team Member",
+    image: "/MEMBERS/CC Members/Karthik Prasad M_CS(DS).jpg",
+  },
+  {
+    name: "Nishita Bhat",
+    title: "Core Team Member",
+    image: "/MEMBERS/CC Members/Nishita Bhat (CSE-CY) sem-1.jpg",
+  },
+  {
+    name: "Zeyan Shahid Khan",
+    title: "Core Team Member",
+    image: "/MEMBERS/CC Members/Zeyan Shahid Khan (CSE).jpg",
   }
 ];
 
 const Members = () => {
+  const navigate = useNavigate();
+  
   return (
     <Layout>
       <div className="py-12 md:py-20 bg-background">
@@ -242,7 +224,6 @@ const Members = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl"></div>
                     
                     <div className="aspect-[4/5] relative overflow-hidden rounded-t-2xl">
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
                       <img
                         src={member.image}
                         alt={member.name}
@@ -353,39 +334,47 @@ const Members = () => {
         </section>
 
         {/* Join Us Section */}
-        <section className="py-16 sm:py-20 lg:py-28 relative overflow-hidden safe-area-inset-bottom">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-accent"></div>
-          <div className="absolute inset-0 bg-black/20"></div>
+        <section className="py-12 md:py-16 relative overflow-hidden safe-area-inset-bottom">
+          {/* Clean gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background"></div>
+          
+          {/* Single elegant wave */}
+          <div className="absolute inset-0 opacity-[0.07] overflow-hidden">
+            <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+              <path 
+                fill="hsl(var(--primary))" 
+                d="M0,160L60,165.3C120,171,240,181,360,181.3C480,181,600,171,720,154.7C840,139,960,117,1080,122.7C1200,128,1320,160,1380,176L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+                className="animate-wave"
+              />
+            </svg>
+          </div>
+          
+          {/* Subtle ambient glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
           
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8">
-              <div className="space-y-4 sm:space-y-6">
-                <h2 className="font-inter text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            <div className="max-w-3xl mx-auto space-y-8">
+              <div className="space-y-4">
+                <h2 className="font-inter text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight">
                   Ready to Join Our{" "}
-                  <span className="block sm:inline text-transparent bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text">
+                  <span className="text-gradient-lusion">
                     Diplomatic Family?
                   </span>
                 </h2>
-                <p className="text-lg sm:text-xl lg:text-2xl text-white/90 font-inter leading-relaxed max-w-4xl mx-auto">
-                  Become part of a community that values excellence, fosters growth, and creates tomorrow's global leaders
+                <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                  Be part of a dynamic community where diplomacy meets innovation.
                 </p>
               </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-8 sm:mt-12">
-                <a
-                  href="/contact"
-                  className="btn-lusion bg-white text-primary hover:bg-white/90 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] group w-full sm:w-auto"
-                >
-                  <span>Join Our Society</span>
-                  <Users className="h-4 w-4 sm:h-5 sm:w-5 ml-2 group-hover:scale-110 transition-transform" />
-                </a>
-                <a
-                  href="/events"
-                  className="btn-lusion-outline border-white text-white hover:bg-white hover:text-primary w-full sm:w-auto group"
-                >
-                  <span>View Events</span>
-                  <Globe className="h-4 w-4 sm:h-5 sm:w-5 ml-2 group-hover:rotate-12 transition-transform" />
-                </a>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button size="lg" className="btn-lusion group/btn" onClick={() => navigate("/contact")}>
+                  <span>Join Today</span>
+                  <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                </Button>
+                <Button size="lg" variant="outline" className="btn-lusion-outline" onClick={() => navigate("/about")}>
+                  Learn More
+                </Button>
               </div>
             </div>
           </div>

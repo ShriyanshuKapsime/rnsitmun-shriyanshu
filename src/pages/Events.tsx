@@ -14,21 +14,6 @@ import {
 const Events = () => {
   const upcomingEvents = [
     {
-      id: 1,
-      title: "ATLAS Quiz 2.0",
-      subtitle: "The Intercollege Quiz",
-      date: "9 October 2025",
-      location: "RNSIT Campus",
-      description:
-        "ATLAS Quiz is RNSIT's flagship intercollegiate quiz competition, bringing together some of the sharpest minds to compete across diverse topics including current affairs, history, science, and culture.",
-      status: "upcoming",
-      participants: "100+ Teams",
-      prizePool: "₹6000",
-      image: "/atlas-quiz-banner.jpg",
-      highlight: true,
-      icon: Trophy,
-    },
-    {
       id: 2,
       title: "RNSMUN 2025",
       subtitle: "The Annual Flagship MUN Conference",
@@ -40,8 +25,23 @@ const Events = () => {
       participants: "-",
       committees: ["-"],
       image: "/mun-logo.jpg",
-      highlight: false,
+      highlight: true,
       icon: Globe,
+    },
+    {
+      id: 1,
+      title: "ATLAS Quiz 2.0",
+      subtitle: "The Intercollege Quiz",
+      date: "9 October 2025",
+      location: "RNSIT Campus",
+      description:
+        "ATLAS Quiz is RNSIT's flagship intercollegiate quiz competition, bringing together some of the sharpest minds to compete across diverse topics including current affairs, history, science, and culture.",
+      status: "closed",
+      participants: "100+ Teams",
+      prizePool: "₹6000",
+      image: "/atlas-quiz-banner.jpg",
+      highlight: false,
+      icon: Trophy,
     },
   ];
 
@@ -144,6 +144,8 @@ const Events = () => {
                       ? "bg-emerald-500 hover:bg-emerald-600"
                       : event.status === "planning"
                       ? "bg-blue-500 hover:bg-blue-600"
+                      : event.status === "closed"
+                      ? "bg-red-500 hover:bg-red-600"
                       : "bg-slate-500 hover:bg-slate-600"
                   } text-white font-semibold px-4 py-2 shadow-lg transition-colors`}
                 >
@@ -151,6 +153,8 @@ const Events = () => {
                     ? "Upcoming"
                     : event.status === "planning"
                     ? "In Planning"
+                    : event.status === "closed"
+                    ? "Closed"
                     : "Completed"}
                 </Badge>
               </div>

@@ -22,9 +22,7 @@ const Navbar = () => {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
-  // Atlas Quiz moved before Home
   const navLinks = [
-    { name: "Atlas Quiz", path: "/atlas-quiz" },
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Events", path: "/events" },
@@ -71,9 +69,7 @@ const Navbar = () => {
                 to={link.path}
                 className={`relative px-5 py-2 font-inter font-medium text-sm uppercase tracking-wide transition-all duration-300 rounded-lg group flex items-center justify-center
                   ${
-                    link.name === "Atlas Quiz"
-                      ? "bg-primary text-white shadow-md hover:shadow-lg hover:bg-primary/90"
-                      : location.pathname === link.path
+                    location.pathname === link.path
                       ? "text-primary after:scale-x-100 after:origin-bottom-left"
                       : "text-foreground hover:text-primary"
                   }`}
@@ -133,9 +129,7 @@ const Navbar = () => {
               to={link.path}
               className={`px-6 py-4 font-inter text-lg font-medium transition-all duration-500 rounded-xl relative group touch-manipulation transform
                 ${
-                  link.name === "Atlas Quiz"
-                    ? "bg-primary text-white shadow-md hover:shadow-lg hover:bg-primary/90"
-                    : location.pathname === link.path
+                  location.pathname === link.path
                     ? "text-primary font-semibold bg-gradient-to-r from-primary/10 to-accent/5 shadow-lg shadow-primary/10"
                     : "text-foreground hover:text-primary hover:bg-primary/5"
                 }`}

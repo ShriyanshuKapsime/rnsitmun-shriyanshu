@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { Trophy, Calendar, Users, ArrowRight } from "lucide-react";
+import { Trophy, Calendar, Users } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
@@ -78,13 +77,10 @@ const Index = () => {
                   </div>
                   
                   <Button
-                    asChild
-                    className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-[0_0_25px_rgba(26,47,251,0.5)] hover:scale-105 group"
+                    disabled
+                    className="bg-gray-500 text-white px-8 py-3 rounded-xl font-semibold text-lg cursor-not-allowed opacity-70"
                   >
-                    <Link to="/atlas-quiz">
-                      Register Now
-                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                    CLOSED!
                   </Button>
                 </div>
                 
