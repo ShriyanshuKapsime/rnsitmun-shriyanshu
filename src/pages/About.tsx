@@ -35,6 +35,12 @@ const About = () => {
       event: "Nexus 2.0",
       description: "Second edition of our flagship intra-college MUN conference",
       icon: Star
+    },
+    {
+      year: "October 2025",
+      event: "Atlas Quiz 2.0",
+      description: "Successfully organized quiz championship with 180+ participants",
+      icon: Award
     }
   ];
 
