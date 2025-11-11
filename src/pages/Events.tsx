@@ -30,12 +30,12 @@ const Events = () => {
     },
     {
       id: 2,
-      title: "RNSMUN 2025",
+      title: "RNSMUN 2026",
       subtitle: "The Annual Flagship MUN Conference",
-      date: "December 2025",
+      date: "Feb 2026",
       location: "RNSIT Campus",
       description:
-        "RNSMUN 2025 will bring together delegates from across the nation for an immersive diplomatic experience featuring engaging committees, thought-provoking agendas, and a platform to showcase leadership.",
+        "RNSMUN 2026 will bring together delegates from across the nation for an immersive diplomatic experience featuring engaging committees, thought-provoking agendas, and a platform to showcase leadership.",
       status: "upcoming",
       participants: "-",
       committees: ["-"],
