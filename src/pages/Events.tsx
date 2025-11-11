@@ -40,7 +40,7 @@ const Events = () => {
       participants: "-",
       committees: ["-"],
       image: "/mun-logo.jpg",
-      highlight: true,
+      highlight: false,
       icon: Globe,
     },
   ];
