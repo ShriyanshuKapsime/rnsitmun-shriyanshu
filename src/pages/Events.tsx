@@ -14,6 +14,20 @@ import {
 const Events = () => {
   const upcomingEvents = [
     {
+      id: 1,
+      title: "Nexus 3.0",
+      subtitle: "Building on Success",
+      date: "November 21-22, 2025",
+      location: "ECE Block, Hitech Lab",
+      description:
+        "The Third edition of our intra-college MUN, continuing the tradition of diplomatic engagement and excellence.",
+      status: "upcoming",
+      participants: "60+ Delegates",
+      committees: ["IntraMUN"],
+      image: "/mun-logo.jpg",
+      highlight: true,
+      icon: Trophy,
+    },
       id: 2,
       title: "RNSMUN 2025",
       subtitle: "The Annual Flagship MUN Conference",
@@ -28,21 +42,7 @@ const Events = () => {
       highlight: true,
       icon: Globe,
     },
-    {
-      id: 1,
-      title: "ATLAS Quiz 2.0",
-      subtitle: "The Intercollege Quiz",
-      date: "9 October 2025",
-      location: "RNSIT Campus",
-      description:
-        "ATLAS Quiz is RNSIT's flagship intercollegiate quiz competition, bringing together some of the sharpest minds to compete across diverse topics including current affairs, history, science, and culture.",
-      status: "closed",
-      participants: "100+ Teams",
-      prizePool: "₹6000",
-      image: "/atlas-quiz-banner.jpg",
-      highlight: false,
-      icon: Trophy,
-    },
+
   ];
 
   const pastEvents = [
@@ -102,6 +102,21 @@ const Events = () => {
       image: "/mun-logo.jpg",
       icon: Trophy,
     },
+    {
+      id: 6,
+      title: "ATLAS Quiz 2.0",
+      subtitle: "The Intercollege Quiz",
+      date: "9 October 2025",
+      location: "RNSIT Campus",
+      description:
+        "ATLAS Quiz is RNSIT's flagship intercollegiate quiz competition, bringing together some of the sharpest minds to compete across diverse topics including current affairs, history, science, and culture.",
+      status: "Completed",
+      participants: "100+ Teams",
+      prizePool: "₹6000",
+      image: "/atlas-quiz-banner.jpg",
+      highlight: false,
+      icon: Trophy,
+    },    
   ];
 
   const EventCard = ({
