@@ -261,7 +261,7 @@ const technicalTeam = [
     role: "Technical Member"
   },
   {
-    name: "Shriyanshu Kumar Kaspime",
+    name: "Shriyanshu Kumar Kapsime",
     department: "Computer Science",
     filename: "ShriyanshuKumarKapsime_CSE(J).jpg",
     role: "Technical Member"
