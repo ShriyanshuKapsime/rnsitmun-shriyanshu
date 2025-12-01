@@ -8,12 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 const delegationMembers = [
   {
-    name: "Aditi Sanjay Revankar",
-    department: "Computer Science - Data Science",
-    filename: "AditiSanjayRevankar_5thSem_CS-DS.jpg",
-    role: "Delegate"
-  },
-  {
     name: "Alankrita Singh",
     department: "Computer Science",
     filename: "Alankrita_Singh(CSE).jpg",
@@ -21,7 +15,7 @@ const delegationMembers = [
   },
   {
     name: "Arckit Arihant",
-    department: "Computer Science (AI & ML)",
+    department: "Computer Science (AI&ML)",
     filename: "Arckit Arihant_ CSE(AIML).jpg",
     role: "Delegate"
   },
@@ -32,33 +26,147 @@ const delegationMembers = [
     role: "Delegate"
   },
   {
-    name: "Lavanya Rao",
-    department: "Electronics and Communication Engineering",
-    filename: "Lavanya Rao_EC.jpg",
-    role: "Delegate"
-  },
-  {
-    name: "Malla Varshini",
-    department: "Computer Science - Data Science",
-    filename: "Malla Varshini_CS-DS.jpg",
-    role: "Delegate"
-  },
-  {
-    name: "Sinchana Dv",
-    department: "Electronics and Communication Engineering",
-    filename: "Sinchana Dv ECE.jpg",
-    role: "Delegate"
-  },
-  {
-    name: "Surabhi Rao",
-    department: "Electronics and Communication Engineering",
-    filename: "Surabhi Rao_EC.jpg",
-    role: "Delegate"
-  },
-  {
     name: "Varun A",
     department: "Electrical and Electronics Engineering",
     filename: "Varun A - eee.JPG",
+    role: "Delegate"
+  },
+  {
+    name: "Dhatri Venkatesh Aralaguppe",
+    department: "Computer Science",
+    filename: "DhatriVenkateshAralaguppe_CSE.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Venkatnaga Shreyas P H",
+    department: "Computer Science",
+    filename: "Venkatnaga Shreyas P H_CSE .jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Priyanka N Manturmath",
+    department: "Computer Science",
+    filename: "Priyanka N Manturmath .JPG",
+    role: "Delegate"
+  },
+  {
+    name: "Vachan B Hindiskere",
+    department: "Computer Science",
+    filename: "VachanBHindiskere_CSE.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Sourab Bavikatti",
+    department: "Computer Science",
+    filename: "Sourab Bavikatti - CSE.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Nuha Alishba",
+    department: "Computer Science (Data Science)",
+    filename: "NuhaAlishba_CSE-DS.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Manu T",
+    department: "Computer Science (AI&ML)",
+    filename: "Manu_T_AIMLD.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Ananya patil A",
+    department: "Computer Science",
+    filename: "Ananya_patil A_CSE.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Sankalp C Pai",
+    department: "Computer Science (Cyber Security)",
+    filename: "Sankalp C Pai -Cybersecurity-1RN25CY015-T.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Kapil Pal",
+    department: "Computer Science (AI&ML)",
+    filename: "Kapil Pal AIML.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Divya Sharma",
+    department: "Electronics and Communication Engineering",
+    filename: "Divya sharma-ECE (1).jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Aritri Bhattacharya",
+    department: "Computer Science (AI&ML)",
+    filename: "AritriBhattacharya_AIML.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Chinmoy Das",
+    department: "Computer Science (Data Science)",
+    filename: "Chinmoy_das_DS(A).png",
+    role: "Delegate"
+  },
+  {
+    name: "Tanmay Prakash Shetty",
+    department: "Computer Science",
+    filename: "Tanmay Shetty_CSEJ.png",
+    role: "Delegate"
+  },
+  {
+    name: "Prisha Singh",
+    department: "Computer Science",
+    filename: "Prisha Singh CSE-G.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Kanisha Nath",
+    department: "Computer Science",
+    filename: "KANISHANATH_CSE.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Nishtaa Harsha",
+    department: "Computer Science",
+    filename: "Nishtaa Harsha_CSE.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Bhargavi Gangoor",
+    department: "Computer Science (Cyber Security)",
+    filename: "BhargaviGangoor_CY (1).jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Divyansh",
+    department: "Computer Science",
+    filename: "Divyansh CSE.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Ankita meher",
+    department: "Computer Science",
+    filename: "Ankita Meher -CSE.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Dhanya S Raj",
+    department: "Computer Science",
+    filename: "DhanyaSRaj CSE.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Anantha Narayan R Prabhu",
+    department: "Computer Science",
+    filename: "Anantha Narayan_CSE.jpg",
+    role: "Delegate"
+  },
+  {
+    name: "Sankeerthana Kasi",
+    department: "Electronics and Communication Engineering",
+    filename: "Sankeerthana Kasi_ECE_MUN.jpg",
     role: "Delegate"
   },
 ];
@@ -130,11 +238,6 @@ const coreTeam = [
     image: "/MEMBERS/CC Members/Nihal N(Aiml).jpg",
   },
   {
-    name: "Yamini Mouli C",
-    title: "Core Team Member",
-    image: "/MEMBERS/CC Members/Yamini.jpg",
-  },
-  {
     name: "Adith D H",
     title: "Core Team Member",
     image: "/MEMBERS/CC Members/Adith D H (ECE A SEM 1).jpg",
@@ -145,16 +248,176 @@ const coreTeam = [
     image: "/MEMBERS/CC Members/Karthik Prasad M_CS(DS).jpg",
   },
   {
-    name: "Nishita Bhat",
-    title: "Core Team Member",
-    image: "/MEMBERS/CC Members/Nishita Bhat (CSE-CY) sem-1.jpg",
-  },
-  {
     name: "Zeyan Shahid Khan",
     title: "Core Team Member",
     image: "/MEMBERS/CC Members/Zeyan Shahid Khan (CSE).jpg",
   }
 ];
+const technicalTeam = [
+  {
+    name: "Bhargavi Gangoor",
+    department: "Computer Science (Cyber Security)",
+    filename: "BhargaviGangoor_CY (1).jpg",
+    role: "Technical Member"
+  },
+  {
+    name: "Shriyanshu Kumar Kapsime",
+    department: "Computer Science",
+    filename: "ShriyanshuKumarKapsime_CSE(J).jpg",
+    role: "Technical Member"
+  },
+  {
+    name: "Rudra Chakraborty",
+    department: "Computer Science (AI&ML)",
+    filename: "RudraChakraborty_AIML.jpg",
+    role: "Technical Member"
+  },
+];
+const photographyTeam = [
+  {
+    name: "Advika Kirana Banni",
+    department: "Computer Science (AI&ML)",
+    filename: "Advika Kirana Banni_CSE (1).jpg",
+    role: "Photgraphy And Videography Member"
+  },
+  {
+    name: "Nesara S",
+    department: "Electronics and Communication Engineering",
+    filename: "NesaraS_ECE.png",
+    role: "Photgraphy And Videography Member"
+  },
+];
+const socialMediaTeam = [
+  {
+    name: "Netra Shivakumar",
+    department: "Computer Science (AI&ML)",
+    filename: "NetraShivakumar_AIML (1).jpg",
+    role: "Social Media Manager"
+  },
+];
+const videoEditingTeam = [
+   {
+    name: "Yashas P",
+    department: "Computer Science (AI&ML)",
+    filename: "YashasP_AIML.png",
+    role: "Editor"
+  },
+];
+const contentWritingTeam = [
+  {
+    name: "Anantha Narayan R Prabhu",
+    department: "Computer Science",
+    filename: "Anantha Narayan_CSE.jpg",
+    role: "Content Writer"
+  },
+  {
+    name: "Sankeerthana Kasi",
+    department: "Electronics and Communication Engineering",
+    filename: "Sankeerthana Kasi_ECE_MUN.jpg",
+    role: "Content Writer"
+  },
+  {
+    name: "Samarth G Joshi",
+    department: "Computer Science",
+    filename: "Samarth g joshi CSE I.jpeg",
+    role: "Content Writer"
+  },
+  {
+    name: "Poorvika Nagaraj",
+    department: "Computer Science",
+    filename: "Poorvika Nagaraj _Cse (1).jpg",
+    role: "Content Writer"
+  },
+
+];
+
+
+
+
+const CommitteeSection = ({ title, iconColor, members, folder }) => {
+  if (!members.length) return null;
+
+  return (
+    <section className="py-16 sm:py-20 lg:py-28 bg-primary/5 relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Heading */}
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div className={`inline-flex items-center space-x-2 bg-${iconColor}/10 rounded-full px-4 py-2 mb-4 border border-${iconColor}/20`}>
+            <Sparkles className={`h-5 w-5 text-${iconColor}`} />
+            <span className={`text-${iconColor} font-semibold uppercase tracking-wide text-sm`}>
+              {title}
+            </span>
+          </div>
+
+          <h2 className="section-heading-lusion text-3xl sm:text-4xl lg:text-5xl mb-4">
+            {title}
+          </h2>
+
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
+            Meet the members who contribute to {title}
+          </p>
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6 lg:gap-8">
+          {members.map((member, index) => (
+            <HoverCard key={index}>
+              <HoverCardTrigger asChild>
+                <div className="group cursor-pointer">
+                  <div className="relative overflow-hidden rounded-xl bg-card shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-border/20 hover:border-primary/30">
+
+                    <div className="aspect-square relative overflow-hidden">
+                      <img
+                        src={`/MEMBERS/${folder}/${member.filename}`}
+                        alt={member.name}
+                        className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 [image-rendering:-webkit-optimize-contrast]"
+                        onError={(e) => (e.currentTarget.src = '/mun-logo.jpg')}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                    </div>
+
+                    <div className="p-2 sm:p-3">
+                      <h3 className="font-inter font-semibold text-xs sm:text-sm leading-tight group-hover:text-primary transition-colors">
+                        {member.name}
+                      </h3>
+                    </div>
+
+                  </div>
+                </div>
+              </HoverCardTrigger>
+
+              {/* Hover Popup */}
+              <HoverCardContent className="w-72 sm:w-80 p-4 bg-card/95 border border-border/20 shadow-xl backdrop-blur">
+                <div className="flex gap-4">
+
+                  <div className="w-16 h-16 rounded-xl overflow-hidden shadow">
+                    <img
+                      src={`/MEMBERS/${folder}/${member.filename}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <h4 className="font-bold text-lg">{member.name}</h4>
+                    <p className="text-sm text-muted-foreground">{member.role}</p>
+
+                    <Badge className="bg-primary/10 text-primary border-primary/20 text-xs">
+                      {member.department}
+                    </Badge>
+                  </div>
+
+                </div>
+              </HoverCardContent>
+            </HoverCard>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
 
 const Members = () => {
   const navigate = useNavigate();
@@ -190,7 +453,7 @@ const Members = () => {
                 </div>
                 <div className="flex items-center space-x-2 sm:space-x-3 bg-primary/10 backdrop-blur-sm rounded-full px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border border-primary/20 hover:bg-primary/20 transition-all duration-300">
                   <Award className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-primary" />
-                  <span className="text-primary font-inter font-semibold text-sm sm:text-base">14 Core Leaders</span>
+                  <span className="text-primary font-inter font-semibold text-sm sm:text-base">16 Core Leaders</span>
                 </div>
                 <div className="flex items-center space-x-2 sm:space-x-3 bg-primary/10 backdrop-blur-sm rounded-full px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border border-primary/20 hover:bg-primary/20 transition-all duration-300">
                   <Globe className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-primary" />
@@ -253,85 +516,22 @@ const Members = () => {
           </div>
         </section>
 
-        {/* Delegation Team */}
-        <section className="py-16 sm:py-20 lg:py-28 bg-primary/5 relative">
-          <div className="absolute inset-0 opacity-40" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23${encodeURIComponent(getComputedStyle(document.documentElement).getPropertyValue('--primary').replace(/\s/g, '').replace('hsl(', '').replace(')', '').split(' ').join(''))}' fill-opacity='0.03'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-          
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-              <div className="inline-flex items-center space-x-2 bg-accent/10 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6 border border-accent/20">
-                <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-accent" />
-                <span className="text-accent font-inter font-semibold uppercase tracking-wide text-xs sm:text-sm">Our Community</span>
-              </div>
-              <h2 className="section-heading-lusion text-3xl sm:text-4xl lg:text-5xl mb-4 sm:mb-6">
-                Delegation Team
-              </h2>
-              <p className="text-lg sm:text-xl text-muted-foreground font-inter max-w-4xl mx-auto leading-relaxed">
-                Talented delegates from diverse academic backgrounds united by their passion for diplomacy and global affairs
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 lg:gap-6">
-              {delegationMembers.map((member, index) => (
-                <HoverCard key={index}>
-                  <HoverCardTrigger asChild>
-                    <div className="group cursor-pointer touch-manipulation">
-                      <div className="relative overflow-hidden rounded-xl bg-card shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-border/20 hover:border-primary/30">
-                        <div className="aspect-square relative overflow-hidden">
-                          <img
-                            src={`/MEMBERS/delegation/${member.filename}`}
-                            alt={member.name}
-                            className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-110"
-                            loading="lazy"
-                            onError={(e) => {
-                              e.currentTarget.src = '/mun-logo.jpg';
-                            }}
-                            style={{
-                              backgroundColor: 'hsl(var(--muted))'
-                            }}
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                          <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p className="font-inter font-semibold text-xs uppercase tracking-wide">
-                              View Profile
-                            </p>
-                          </div>
-                        </div>
-                        <div className="p-2 sm:p-3">
-                          <h3 className="font-inter font-semibold text-xs sm:text-sm text-foreground leading-tight group-hover:text-primary transition-colors line-clamp-2">
-                            {member.name}
-                          </h3>
-                        </div>
-                      </div>
-                    </div>
-                  </HoverCardTrigger>
-                  <HoverCardContent className="w-72 sm:w-80 p-4 bg-card/95 backdrop-blur-sm border border-border/20 shadow-2xl">
-                    <div className="flex space-x-3 sm:space-x-4">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl overflow-hidden shadow-md flex-shrink-0">
-                        <img
-                          src={`/MEMBERS/delegation/${member.filename}`}
-                          alt={member.name}
-                          className="h-full w-full object-cover object-center"
-                        />
-                      </div>
-                      <div className="flex-1 space-y-2 min-w-0">
-                        <h4 className="font-inter font-bold text-base sm:text-lg text-foreground line-clamp-1">{member.name}</h4>
-                        <p className="text-sm text-muted-foreground font-inter">{member.role}</p>
-                        <div className="pt-2">
-                          <Badge className="bg-primary/10 text-primary border-primary/20 text-xs font-medium">
-                            {member.department}
-                          </Badge>
-                        </div>
-                      </div>
-                    </div>
-                  </HoverCardContent>
-                </HoverCard>
-              ))}
-            </div>
-          </div>
-        </section>
+         {/* DELEGATION TEAM */}
+        <CommitteeSection
+          title="Delegation Team"
+          iconColor="accent"
+          members={delegationMembers}
+          folder="delegation"
+        />
+
+
+        {/* NEW TEAM SECTIONS */}
+        <CommitteeSection title="Technical Committee" iconColor="primary" members={technicalTeam} folder="technical" />
+        <CommitteeSection title="Photography and Videography Committee" iconColor="accent" members={photographyTeam} folder="photography" />
+        <CommitteeSection title="Social Media Committee" iconColor="secondary" members={socialMediaTeam} folder="social-media" />
+        <CommitteeSection title="Video Editing Team" iconColor="primary" members={videoEditingTeam} folder="video-editing" />
+        <CommitteeSection title="Content Writing Committee" iconColor="accent" members={contentWritingTeam} folder="content-writing" />
+
 
         {/* Join Us Section */}
         <section className="py-12 md:py-16 relative overflow-hidden safe-area-inset-bottom">

@@ -30,9 +30,11 @@ const BlueBikeSVG = ({ size = 150, opacity = 0.7 }) => {
 };
 
 export default function EventBanner() {
+  const eventClosed = true; // Set to true when event is over
+
   const [motionOffset, setMotionOffset] = useState(0);
 
-  /* 🌊 Infinite looping motion */
+  /* Infinite looping motion */
   useEffect(() => {
     let raf: number;
     let x = 0;
@@ -158,7 +160,7 @@ export default function EventBanner() {
               <li>• Mobility surveys</li>
               <li>• Pedaluru campaign info</li>
             </ul>
-
+          {!eventClosed ? (
             <Button
               asChild
               size="lg"
@@ -168,7 +170,11 @@ export default function EventBanner() {
                 Join WhatsApp Group
               </a>
             </Button>
-
+            ) : (
+            <div className="px-6 py-4 bg-red-500/10 border border-red-500/40 text-red-400 rounded-xl font-semibold text-lg text-center">
+             Event Closed — Thank you for participating!
+            </div>
+            )}
           </CardContent>
         </Card>
 
