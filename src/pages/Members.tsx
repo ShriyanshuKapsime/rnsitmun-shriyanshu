@@ -1,4 +1,5 @@
 
+import { useEffect, useMemo, useState } from "react";
 import Layout from "@/components/layout/Layout";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
 import { Badge } from "@/components/ui/badge";
@@ -158,7 +159,22 @@ const coreTeam = [
 
 const Members = () => {
   const navigate = useNavigate();
-  
+  const [primaryPatternColor, setPrimaryPatternColor] = useState("hsl(259 68% 60%)");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const rootStyles = getComputedStyle(document.documentElement);
+    const primary = rootStyles.getPropertyValue("--primary").trim();
+    if (primary) {
+      setPrimaryPatternColor(`hsl(${primary})`);
+    }
+  }, []);
+
+  const delegationPattern = useMemo(() => {
+    const encoded = encodeURIComponent(primaryPatternColor);
+    return `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='${encoded}' fill-opacity='0.03'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`;
+  }, [primaryPatternColor]);
+
   return (
     <Layout>
       <div className="py-12 md:py-20 bg-background">
@@ -255,9 +271,7 @@ const Members = () => {
 
         {/* Delegation Team */}
         <section className="py-16 sm:py-20 lg:py-28 bg-primary/5 relative">
-          <div className="absolute inset-0 opacity-40" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23${encodeURIComponent(getComputedStyle(document.documentElement).getPropertyValue('--primary').replace(/\s/g, '').replace('hsl(', '').replace(')', '').split(' ').join(''))}' fill-opacity='0.03'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
+          <div className="absolute inset-0 opacity-40" style={{ backgroundImage: delegationPattern }}></div>
           
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="text-center mb-12 sm:mb-16 lg:mb-20">
