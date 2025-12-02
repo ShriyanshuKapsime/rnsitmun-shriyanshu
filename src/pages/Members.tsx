@@ -277,28 +277,28 @@ const technicalTeam = [
 const photographyTeam = [
   {
     name: "Advika Kirana Banni",
+    title: "Photograph and Videography",
     department: "Computer Science (AI&ML)",
     filename: "Advika Kirana Banni_CSE (1).jpg",
     role: "Photgraphy And Videography Member"
   },
   {
     name: "Nesara S",
+    title: "Photograph and Videography",
     department: "Electronics and Communication Engineering",
     filename: "NesaraS_ECE.png",
     role: "Photgraphy And Videography Member"
   },
-];
-const socialMediaTeam = [
   {
     name: "Netra Shivakumar",
+    title: "Social Media Management",
     department: "Computer Science (AI&ML)",
     filename: "NetraShivakumar_AIML (1).jpg",
     role: "Social Media Manager"
   },
-];
-const videoEditingTeam = [
-   {
+  {
     name: "Yashas P",
+    title: "Video Editing",
     department: "Computer Science (AI&ML)",
     filename: "YashasP_AIML.png",
     role: "Editor"
@@ -306,9 +306,9 @@ const videoEditingTeam = [
 ];
 const contentWritingTeam = [
   {
-    name: "Anantha Narayan R Prabhu",
+    name: "Bhargavi Gangoor",
     department: "Computer Science",
-    filename: "Anantha Narayan_CSE.jpg",
+    filename: "BhargaviGangoor_CY (1).jpg",
     role: "Content Writer"
   },
   {
@@ -335,8 +335,52 @@ const contentWritingTeam = [
 
 
 
-const CommitteeSection = ({ title, iconColor, members, folder }) => {
+interface CommitteeSectionProps {
+  title: string;
+  iconColor: 'primary' | 'accent' | 'secondary';
+  members: Array<{
+    name: string;
+    department: string;
+    filename: string;
+    role: string;
+    title?: string;
+  }>;
+  folder: string;
+}
+
+const CommitteeSection = ({ title, iconColor, members, folder }: CommitteeSectionProps) => {
   if (!members.length) return null;
+
+  const getIconColorClasses = () => {
+    switch (iconColor) {
+      case 'primary':
+        return {
+          badge: 'bg-primary/10 text-primary border-primary/20',
+          icon: 'text-primary',
+          text: 'text-primary'
+        };
+      case 'accent':
+        return {
+          badge: 'bg-accent/10 text-accent border-accent/20',
+          icon: 'text-accent',
+          text: 'text-accent'
+        };
+      case 'secondary':
+        return {
+          badge: 'bg-secondary/10 text-secondary border-secondary/20',
+          icon: 'text-secondary',
+          text: 'text-secondary'
+        };
+      default:
+        return {
+          badge: 'bg-primary/10 text-primary border-primary/20',
+          icon: 'text-primary',
+          text: 'text-primary'
+        };
+    }
+  };
+
+  const colorClasses = getIconColorClasses();
 
   return (
     <section className="py-16 sm:py-20 lg:py-28 bg-primary/5 relative">
@@ -344,9 +388,9 @@ const CommitteeSection = ({ title, iconColor, members, folder }) => {
 
         {/* Heading */}
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-          <div className={`inline-flex items-center space-x-2 bg-${iconColor}/10 rounded-full px-4 py-2 mb-4 border border-${iconColor}/20`}>
-            <Sparkles className={`h-5 w-5 text-${iconColor}`} />
-            <span className={`text-${iconColor} font-semibold uppercase tracking-wide text-sm`}>
+          <div className={`inline-flex items-center space-x-2 ${colorClasses.badge} rounded-full px-4 py-2 mb-4 border`}>
+            <Sparkles className={`h-5 w-5 ${colorClasses.icon}`} />
+            <span className={`${colorClasses.text} font-semibold uppercase tracking-wide text-sm`}>
               {title}
             </span>
           </div>
@@ -534,9 +578,7 @@ const Members = () => {
 
         {/* Delegation Team */}
         <section className="py-16 sm:py-20 lg:py-28 bg-primary/5 relative">
-          <div className="absolute inset-0 opacity-40" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23${encodeURIComponent(getComputedStyle(document.documentElement).getPropertyValue('--primary').replace(/\s/g, '').replace('hsl(', '').replace(')', '').split(' ').join(''))}' fill-opacity='0.03'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
+          <div className="absolute inset-0 opacity-40" style={{ backgroundImage: delegationPattern }}></div>
           
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="text-center mb-12 sm:mb-16 lg:mb-20">
