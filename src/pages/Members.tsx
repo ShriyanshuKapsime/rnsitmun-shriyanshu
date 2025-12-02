@@ -284,28 +284,12 @@ const EditingandDesigningTeam = [
     folder: "photography"
   },
   {
-    name: "Nesara S",
-    title: "Photography and Videography",
-    department: "Electronics and Communication Engineering",
-    filename: "NesaraS_ECE.png",
-    role: "Photography And Videography Member",
-    folder: "photography"
-  },
-  {
     name: "Kapil Pal",
     title: "Designer",
     department: "Computer Science (AI&ML)",
     filename: "Kapil Pal AIML.jpg",
     role: "Designer",
     folder: "delegation"
-  },
-  {
-    name: "Yashas P",
-    title: "Video Editor",
-    department: "Computer Science (AI&ML)",
-    filename: "YashasP_AIML.png",
-    role: "Editor",
-    folder: "video-editing"
   },
   {
     name: "Netra Shivakumar",
@@ -315,13 +299,30 @@ const EditingandDesigningTeam = [
     role: "Social Media Manager",
     folder: "social-media"
   },
+  {
+    name: "Nesara S",
+    title: "Photography and Videography",
+    department: "Electronics and Communication Engineering",
+    filename: "NesaraS_ECE.png",
+    role: "Photography And Videography Member",
+    folder: "photography"
+  },
+  {
+    name: "Yashas P",
+    title: "Video Editor",
+    department: "Computer Science (AI&ML)",
+    filename: "YashasP_AIML.png",
+    role: "Editor",
+    folder: "video-editing"
+  },
 ];
 const contentWritingTeam = [
   {
     name: "Bhargavi Gangoor",
     department: "Computer Science",
     filename: "BhargaviGangoor_CY (1).jpg",
-    role: "Content Writer"
+    role: "Content Writer",
+    folder: "delegation"
   },
   {
     name: "Sankeerthana Kasi",
@@ -333,6 +334,7 @@ const contentWritingTeam = [
     name: "Samarth G Joshi",
     department: "Computer Science",
     filename: "Samarth g joshi CSE I.jpeg",
+    
     role: "Content Writer"
   },
   {
