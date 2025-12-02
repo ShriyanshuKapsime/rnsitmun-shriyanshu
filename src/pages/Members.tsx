@@ -216,7 +216,7 @@ const coreTeam = [
   {
     name: "Vivek D Vagale",
     title: "Core Team Member",
-    image: "/MEMBERS/CC Members/Vivek.jpg",
+    image: "/MEMBERS/CC Members/vivek.jpg",
   },
   {
     name: "Aditi Revankar",
@@ -274,34 +274,46 @@ const technicalTeam = [
     role: "Technical Member"
   },
 ];
-const photographyTeam = [
+const EditingandDesigningTeam = [
   {
     name: "Advika Kirana Banni",
-    title: "Photograph and Videography",
+    title: "Photography and Videography",
     department: "Computer Science (AI&ML)",
     filename: "Advika Kirana Banni_CSE (1).jpg",
-    role: "Photgraphy And Videography Member"
+    role: "Photography And Videography Member",
+    folder: "photography"
   },
   {
     name: "Nesara S",
-    title: "Photograph and Videography",
+    title: "Photography and Videography",
     department: "Electronics and Communication Engineering",
     filename: "NesaraS_ECE.png",
-    role: "Photgraphy And Videography Member"
+    role: "Photography And Videography Member",
+    folder: "photography"
+  },
+  {
+    name: "Kapil Pal",
+    title: "Designer",
+    department: "Computer Science (AI&ML)",
+    filename: "Kapil Pal AIML.jpg",
+    role: "Designer",
+    folder: "delegation"
+  },
+  {
+    name: "Yashas P",
+    title: "Video Editor",
+    department: "Computer Science (AI&ML)",
+    filename: "YashasP_AIML.png",
+    role: "Editor",
+    folder: "video-editing"
   },
   {
     name: "Netra Shivakumar",
     title: "Social Media Management",
     department: "Computer Science (AI&ML)",
     filename: "NetraShivakumar_AIML (1).jpg",
-    role: "Social Media Manager"
-  },
-  {
-    name: "Yashas P",
-    title: "Video Editing",
-    department: "Computer Science (AI&ML)",
-    filename: "YashasP_AIML.png",
-    role: "Editor"
+    role: "Social Media Manager",
+    folder: "social-media"
   },
 ];
 const contentWritingTeam = [
@@ -329,11 +341,7 @@ const contentWritingTeam = [
     filename: "Poorvika Nagaraj _Cse (1).jpg",
     role: "Content Writer"
   },
-
 ];
-
-
-
 
 interface CommitteeSectionProps {
   title: string;
@@ -344,6 +352,7 @@ interface CommitteeSectionProps {
     filename: string;
     role: string;
     title?: string;
+    folder?: string;
   }>;
   folder: string;
 }
@@ -414,7 +423,7 @@ const CommitteeSection = ({ title, iconColor, members, folder }: CommitteeSectio
 
                     <div className="aspect-square relative overflow-hidden">
                       <img
-                        src={`/MEMBERS/${folder}/${member.filename}`}
+                        src={`/MEMBERS/${member.folder || folder}/${member.filename}`}
                         alt={member.name}
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 [image-rendering:-webkit-optimize-contrast]"
                         onError={(e) => (e.currentTarget.src = '/mun-logo.jpg')}
@@ -426,6 +435,11 @@ const CommitteeSection = ({ title, iconColor, members, folder }: CommitteeSectio
                       <h3 className="font-inter font-semibold text-xs sm:text-sm leading-tight group-hover:text-primary transition-colors">
                         {member.name}
                       </h3>
+                      {member.title && (
+                        <p className="font-inter text-xs text-muted-foreground mt-1">
+                          {member.title}
+                        </p>
+                      )}
                     </div>
 
                   </div>
@@ -438,7 +452,7 @@ const CommitteeSection = ({ title, iconColor, members, folder }: CommitteeSectio
 
                   <div className="w-16 h-16 rounded-xl overflow-hidden shadow">
                     <img
-                      src={`/MEMBERS/${folder}/${member.filename}`}
+                      src={`/MEMBERS/${member.folder || folder}/${member.filename}`}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -551,6 +565,10 @@ const Members = () => {
                         src={member.image}
                         alt={member.name}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.src = '/mun-logo.jpg';
+                        }}
                       />
                       <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
                         <Badge className="bg-primary/90 text-primary-foreground font-semibold px-2 sm:px-3 py-1 shadow-lg text-xs sm:text-sm">
@@ -575,6 +593,30 @@ const Members = () => {
             </div>
           </div>
         </section>
+
+        {/* Editing and Designing Team */}
+        <CommitteeSection
+          title="Editing and Designing Team"
+          iconColor="accent"
+          members={EditingandDesigningTeam}
+          folder="photography"
+        />
+
+        {/* Content Writing Team */}
+        <CommitteeSection
+          title="Content Writing Committee"
+          iconColor="secondary"
+          members={contentWritingTeam}
+          folder="content-writing"
+        />
+
+        {/* Technical Team */}
+        <CommitteeSection
+          title="Technical Committee"
+          iconColor="primary"
+          members={technicalTeam}
+          folder="technical"
+        />
 
         {/* Delegation Team */}
         <section className="py-16 sm:py-20 lg:py-28 bg-primary/5 relative">
