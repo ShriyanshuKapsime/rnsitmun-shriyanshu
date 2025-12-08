@@ -162,7 +162,7 @@ const delegationMembers = [
     department: "Computer Science",
     filename: "Anantha Narayan_CSE.jpg",
     role: "Delegate"
-  },                                                            // RJ Varsha addition left
+  },                                                           
   {
     name: "Sankeerthana Kasi",
     department: "Electronics and Communication Engineering",
