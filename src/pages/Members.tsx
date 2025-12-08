@@ -163,13 +163,19 @@ const delegationMembers = [
     department: "Computer Science",
     filename: "Anantha Narayan_CSE.jpg",
     role: "Delegate"
-  },
+  },                                                            // RJ Varsha addition left
   {
     name: "Sankeerthana Kasi",
     department: "Electronics and Communication Engineering",
     filename: "Sankeerthana Kasi_ECE_MUN.jpg",
     role: "Delegate"
   },
+  {
+    name: "RJ Varsha",
+    department: "Computer Science",
+    filename: "RJ Varsha.jpg",
+    role: "Delegate"
+  }
 ];
 
 const coreTeam = [
@@ -184,19 +190,29 @@ const coreTeam = [
     image: "/MEMBERS/CC Members/Koushik.jpg",
   },
   {
-    name: "Harsh Ringsia",
-    title: "Core Team Member",
-    image: "/MEMBERS/CC Members/Harsh Ringsia.jpg",
+    name: "Vamshi Ganesh",
+    title: "Head - Editing & Designing",
+    image: "/MEMBERS/CC Members/vamshi formal .png",
+  },
+  {
+    name: "Karthik Prasad M",
+    title: "Head - Technical Committee",
+    image: "/MEMBERS/CC Members/Karthik Prasad M_CS(DS).jpg",
+  },
+  {
+    name: "Nihal N",
+    title: "Head - Content Writing",
+    image: "/MEMBERS/CC Members/Nihal N(Aiml).jpg",
   },
   {
     name: "Aditi Maktedar",
-    title: "Core Team Member",
+    title: "Co Head - Delegation Affairs",
     image: "/MEMBERS/CC Members/Aditi Maktedar.jpg",
   },
   {
-    name: "Vamshi Ganesh",
+    name: "Harsh Ringsia",
     title: "Core Team Member",
-    image: "/MEMBERS/CC Members/vamshi formal .png",
+    image: "/MEMBERS/CC Members/Harsh Ringsia.jpg",
   },
   {
     name: "Tasmiya Afreen",
@@ -219,34 +235,14 @@ const coreTeam = [
     image: "/MEMBERS/CC Members/vivek.jpg",
   },
   {
-    name: "Aditi Revankar",
-    title: "Core Team Member",
-    image: "/MEMBERS/CC Members/Aditi Revankar.jpg",
-  },
-  {
     name: "Anagha MR",
     title: "Core Team Member",
     image: "/MEMBERS/CC Members/Anagha MR.jpg",
   },
   {
-    name: "Varshini",
-    title: "Core Team Member",
-    image: "/MEMBERS/CC Members/Varshini.jpg",
-  },
-  {
-    name: "Nihal N",
-    title: "Core Team Member",
-    image: "/MEMBERS/CC Members/Nihal N(Aiml).jpg",
-  },
-  {
     name: "Adith D H",
     title: "Core Team Member",
     image: "/MEMBERS/CC Members/Adith D H (ECE A SEM 1).jpg",
-  },
-  {
-    name: "Karthik Prasad M",
-    title: "Core Team Member",
-    image: "/MEMBERS/CC Members/Karthik Prasad M_CS(DS).jpg",
   },
   {
     name: "Zeyan Shahid Khan",
@@ -529,7 +525,7 @@ const Members = () => {
                 </div>
                 <div className="flex items-center space-x-2 sm:space-x-3 bg-primary/10 backdrop-blur-sm rounded-full px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border border-primary/20 hover:bg-primary/20 transition-all duration-300">
                   <Award className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-primary" />
-                  <span className="text-primary font-inter font-semibold text-sm sm:text-base">16 Core Leaders</span>
+                  <span className="text-primary font-inter font-semibold text-sm sm:text-base">14 Core Leaders</span>
                 </div>
                 <div className="flex items-center space-x-2 sm:space-x-3 bg-primary/10 backdrop-blur-sm rounded-full px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border border-primary/20 hover:bg-primary/20 transition-all duration-300">
                   <Globe className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-primary" />
